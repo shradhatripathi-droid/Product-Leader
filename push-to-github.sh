@@ -18,14 +18,14 @@ if [ ! -d .git ]; then
   git remote add origin "$REPO_URL"
 fi
 
-git add index.html README.md .nojekyll
-git commit -m "Add interactive product leader portfolio site" || true
+git add index.html Index.html experience-detail_5.html README.md .nojekyll
+git commit -m "Update interactive product leader portfolio" || true
 git push -u origin main
 
 echo ""
-echo "Done. Enable GitHub Pages:"
+echo "Done. GitHub Pages:"
 echo "  https://github.com/shradhatripathi-droid/Product-Leader/settings/pages"
 echo "  Source: Deploy from branch ? main ? / (root)"
 echo ""
 echo "Live site:"
-echo "  https://shradhatripathi-droid.github.io/Product-Leader/"
+echo "  https://shradhatripathi-droid.github.io/Product-Leader/experience-detail_5.html"

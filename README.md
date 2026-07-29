@@ -2,7 +2,7 @@
 
 Interactive product management portfolio: career arc, impact ledger, metrics, and experience across fintech, AI/ML, and enterprise platforms.
 
-**[View live portfolio ?](https://shradhatripathi-droid.github.io/Product-Leader/)**
+**[View live portfolio ?](https://shradhatripathi-droid.github.io/Product-Leader/experience-detail_5.html)**
 
 ## Highlights
 

@@ -24,11 +24,6 @@
     --font-body:'Inter',sans-serif;
     --font-mono:'IBM Plex Mono',monospace;
   }
-  html[data-theme="light"]{
-    --ink:#EAF0F9;--ink-2:#F5F8FC;--panel:#FFFFFF;--panel-2:#FFFFFF;
-    --paper:#0A1830;--muted:#4A6080;--muted-2:#6C88AE;
-    --line:rgba(10,24,48,0.12);
-  }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
@@ -49,21 +44,11 @@
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--rail),var(--gold));z-index:100;transition:width .08s linear;}
-  nav.topnav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;padding-top:0;padding-bottom:0;gap:12px;}
-  .nav-name{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:0.02em;white-space:nowrap;}
-  .nav-links{display:flex;gap:18px;font-size:12.5px;color:var(--muted);overflow-x:auto;scrollbar-width:none;}
-  .nav-links::-webkit-scrollbar{display:none;}
-  .nav-links a{text-decoration:none;color:var(--muted);transition:color .15s;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent;}
-  .nav-links a:hover,.nav-links a.active{color:var(--gold);border-bottom-color:var(--gold);}
-  .nav-actions{display:flex;align-items:center;gap:8px;flex:none;}
-  .icon-btn{
-    width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--ink-2);
-    color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;
-    transition:color .15s,border-color .15s,background .15s;
-  }
-  .icon-btn:hover{color:var(--gold);border-color:var(--rail-soft);}
-  .icon-btn svg{width:16px;height:16px;}
+  nav.topnav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;padding-top:0;padding-bottom:0;}
+  .nav-name{font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:0.02em;}
+  .nav-links{display:flex;gap:26px;font-size:13px;color:var(--muted);}
+  .nav-links a{text-decoration:none;color:var(--muted);transition:color .15s;}
+  .nav-links a:hover{color:var(--gold);}
 
   /* ---------- HERO ---------- */
   header.hero{padding:76px 0 54px;position:relative;overflow:hidden;}
@@ -82,57 +67,18 @@
   }
   .role-line{font-size:19px;color:var(--muted);max-width:620px;margin:0 0 28px;font-weight:400;}
   .role-line strong{color:var(--paper);font-weight:600;}
-  .contact-row{display:flex;flex-wrap:wrap;gap:12px;font-family:var(--font-mono);font-size:13px;color:var(--muted-2);margin-bottom:22px;}
-  .contact-row span,.contact-row a,.contact-chip{display:flex;align-items:center;gap:7px;}
-  .contact-row a,.contact-chip{text-decoration:none;color:var(--muted-2);transition:color .15s;}
-  .contact-row a:hover,.contact-chip:hover{color:var(--gold);}
+  .contact-row{display:flex;flex-wrap:wrap;gap:18px;font-family:var(--font-mono);font-size:13px;color:var(--muted-2);margin-bottom:40px;}
+  .contact-row span{display:flex;align-items:center;gap:7px;}
   .contact-row svg{width:14px;height:14px;opacity:0.75;}
-  .contact-chip{background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;font-family:var(--font-mono);font-size:12.5px;}
-  .contact-chip.copied{border-color:var(--good);color:var(--good);}
-
-  .profile-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
-  .profile-badges span{
-    font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.04em;
-    padding:5px 12px;border-radius:999px;border:1px solid var(--line);
-    background:rgba(44,166,164,0.08);color:var(--rail);
-  }
-  .profile-badges span.gold{background:rgba(232,184,75,0.1);color:var(--gold);border-color:rgba(232,184,75,0.35);}
-
-  .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-size:13px;font-weight:600;
-    padding:10px 18px;border-radius:8px;border:1px solid var(--line);background:var(--panel-2);
-    color:var(--paper);cursor:pointer;text-decoration:none;transition:transform .15s,border-color .15s,background .15s;
-  }
-  .btn:hover{transform:translateY(-1px);border-color:var(--rail-soft);}
-  .btn-primary{background:var(--rail);border-color:var(--rail);color:#0A1830;}
-  .btn-primary:hover{background:#35b8b6;}
-  .btn svg{width:15px;height:15px;}
-
-  .now-strip{
-    display:flex;align-items:flex-start;gap:14px;background:var(--panel-2);border:1px solid var(--line);
-    border-left:3px solid var(--gold);border-radius:10px;padding:16px 20px;margin-bottom:36px;
-  }
-  .now-pulse{width:10px;height:10px;border-radius:50%;background:var(--good);margin-top:5px;flex:none;
-    box-shadow:0 0 0 rgba(79,203,143,0.6);animation:pulse 2s infinite;}
-  @keyframes pulse{0%{box-shadow:0 0 0 rgba(79,203,143,0.5)}70%{box-shadow:0 0 10px rgba(79,203,143,0)}100%{box-shadow:0 0 0 rgba(79,203,143,0)}}
-  .now-label{font-family:var(--font-mono);font-size:11px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
-  .now-text{font-size:14px;color:#CBD8EA;line-height:1.55;}
-  .now-text b{color:var(--paper);}
 
   .stat-strip{
     display:grid;grid-template-columns:repeat(3,1fr);
     border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   }
-  .stat-strip div{padding:20px 4px;border-right:1px solid var(--line);transition:background .2s;}
-  .stat-strip div:hover{background:rgba(44,166,164,0.06);}
+  .stat-strip div{padding:20px 4px;border-right:1px solid var(--line);}
   .stat-strip div:last-child{border-right:none;}
   .stat-num{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--gold);}
   .stat-label{font-size:12px;color:var(--muted);margin-top:4px;}
-
-  section.reveal{opacity:1;transform:none;}
-  html.js section.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
-  html.js section.reveal.is-visible{opacity:1;transform:none;}
 
   /* ---------- SECTION HEADERS ---------- */
   section{padding:64px 0;border-top:1px solid var(--line);}
@@ -145,9 +91,7 @@
   .glance-card{
     background:var(--panel-2);border:1px solid var(--line);border-radius:12px;
     padding:28px 28px 26px;position:relative;overflow:hidden;
-    transition:transform .25s,border-color .25s,box-shadow .25s;cursor:default;
   }
-  .glance-card:hover{transform:translateY(-4px);border-color:var(--rail-soft);box-shadow:0 12px 40px rgba(0,0,0,0.25);}
   .glance-card::before{
     content:"";position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;
     background:radial-gradient(circle,var(--glance-glow,rgba(44,166,164,0.16)) 0%,transparent 70%);
@@ -167,10 +111,9 @@
   .map-card svg{width:100%;height:auto;display:block;}
   .map-caption{text-align:center;font-size:13px;color:var(--muted);margin-top:4px;font-family:var(--font-mono);}
 
-  /* ---------- METRICS & CHARTS ---------- */
+  /* ---------- METRICS / CHARTS ---------- */
   .chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
-  .chart-card{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:20px 22px 8px;transition:transform .2s,border-color .2s;}
-  .chart-card:hover{transform:translateY(-2px);border-color:var(--rail-soft);}
+  .chart-card{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:20px 22px 8px;}
   .chart-card h4{
     font-family:var(--font-display);font-size:15px;font-weight:600;margin:0 0 10px;color:var(--paper);
   }
@@ -182,44 +125,8 @@
   .comp-band span{
     font-family:var(--font-mono);font-size:12.5px;color:var(--paper);
     background:var(--panel-2);border:1px solid var(--rail-soft);border-radius:999px;
-    padding:8px 16px;cursor:pointer;transition:background .15s,border-color .15s,transform .15s;
+    padding:8px 16px;
   }
-  .comp-band span:hover,.comp-band span.active{background:rgba(44,166,164,0.15);border-color:var(--rail);transform:translateY(-1px);}
-  .comp-band span.dim{opacity:0.35;}
-
-  .filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
-  .filter-bar button{
-    font-family:var(--font-mono);font-size:12px;color:var(--muted);background:var(--ink-2);
-    border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;transition:all .15s;
-  }
-  .filter-bar button:hover{color:var(--paper);border-color:var(--rail-soft);}
-  .filter-bar button.active{background:rgba(44,166,164,0.15);color:var(--rail);border-color:var(--rail);}
-  .ledger-row{transition:opacity .25s,transform .25s,max-height .25s;}
-  .ledger-row.hidden{display:none;}
-
-  .launch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
-  .launch-card{
-    background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;
-    position:relative;overflow:hidden;transition:transform .25s,border-color .25s;
-  }
-  .launch-card::after{
-    content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:var(--launch-color,var(--rail));
-  }
-  .launch-card:hover{transform:translateY(-3px);border-color:var(--rail-soft);}
-  .launch-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
-  .launch-org{font-family:var(--font-display);font-size:14px;font-weight:700;}
-  .launch-status{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--good);background:rgba(79,203,143,0.12);padding:3px 8px;border-radius:999px;}
-  .launch-title{font-size:15px;font-weight:600;color:var(--paper);margin:0 0 8px;line-height:1.35;}
-  .launch-impact{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--launch-color,var(--gold));}
-  .launch-year{font-family:var(--font-mono);font-size:11px;color:var(--muted-2);margin-top:8px;}
-
-  .skill-meter{margin-bottom:14px;}
-  .skill-meter-head{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:6px;}
-  .skill-meter-head span:first-child{color:var(--paper);}
-  .skill-meter-head span:last-child{font-family:var(--font-mono);color:var(--rail);}
-  .skill-meter-bar{height:6px;background:var(--ink-2);border-radius:999px;overflow:hidden;}
-  .skill-meter-fill{height:100%;width:0;background:linear-gradient(90deg,var(--rail),var(--gold));border-radius:999px;transition:width 1s cubic-bezier(.22,1,.36,1);}
-  .skill-meter.is-visible .skill-meter-fill{width:var(--pct);}
 
   /* ---------- TRUSTED BY STRIP ---------- */
   .trusted{margin-top:36px;padding-top:30px;border-top:1px solid var(--line);}
@@ -254,16 +161,7 @@
     content:"";position:absolute;left:23px;top:8px;bottom:8px;width:2px;
     background:linear-gradient(to bottom,var(--rail),var(--line) 92%);
   }
-  .job{position:relative;margin-bottom:52px;transition:opacity .3s;}
-  .job.filtered-out{display:none;}
-  .job-head{cursor:pointer;user-select:none;}
-  .job-toggle{
-    margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--muted);
-    border:1px solid var(--line);border-radius:999px;padding:2px 10px;flex:none;
-  }
-  .job.collapsed ul.bullets{display:none;}
-  .job.collapsed .job-toggle::before{content:"Expand";}
-  .job:not(.collapsed) .job-toggle::before{content:"Collapse";}
+  .job{position:relative;margin-bottom:52px;}
   .job:last-child{margin-bottom:0;}
   .badge{
     position:absolute;left:-56px;top:0;width:46px;height:46px;border-radius:10px;
@@ -272,7 +170,7 @@
     border:2px solid var(--ink);box-shadow:0 0 0 2px var(--line);
   }
   .job.current .badge{box-shadow:0 0 0 3px var(--gold),0 0 18px rgba(232,184,75,0.45);}
-  .job-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px 14px;margin-bottom:4px;width:100%;}
+  .job-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px 14px;margin-bottom:4px;}
   .org-name{font-family:var(--font-display);font-size:20px;font-weight:700;}
   .job-title{font-size:15px;color:var(--paper);font-weight:500;}
   .job-meta{font-family:var(--font-mono);font-size:12px;color:var(--muted-2);margin-bottom:16px;display:flex;gap:12px;}
@@ -305,19 +203,10 @@
 
   /* ---------- EDUCATION ---------- */
   .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  .edu-card{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:20px;transition:transform .2s,border-color .2s;}
-  .edu-card:hover{transform:translateY(-3px);border-color:var(--gold);}
+  .edu-card{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:20px;}
   .edu-card .edu-icon{width:26px;height:26px;color:var(--gold);margin-bottom:14px;}
   .edu-card h4{font-family:var(--font-display);font-size:15.5px;margin:0 0 6px;font-weight:600;}
   .edu-card p{font-size:12.5px;color:var(--muted);margin:0;font-family:var(--font-mono);}
-
-  .toast{
-    position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
-    background:var(--ink-2);border:1px solid var(--rail);color:var(--paper);
-    font-family:var(--font-mono);font-size:13px;padding:12px 20px;border-radius:8px;
-    opacity:0;pointer-events:none;transition:transform .3s,opacity .3s;z-index:200;
-  }
-  .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
 
   footer{padding:40px 0 60px;text-align:center;color:var(--muted-2);font-size:13px;font-family:var(--font-mono);}
   footer .rule{width:60px;height:1px;background:var(--rail);margin:0 auto 22px;}
@@ -426,12 +315,6 @@
     .rail-wrap{padding-left:44px;}
     .badge{left:-44px;width:38px;height:38px;font-size:11px;}
     .nav-links{display:none;}
-    .nav-links.open{
-      display:flex;position:absolute;top:56px;left:0;right:0;flex-direction:column;
-      background:rgba(10,24,48,0.96);padding:16px 20px 20px;border-bottom:1px solid var(--line);gap:12px;
-    }
-    html[data-theme="light"] .nav-links.open{background:rgba(234,240,249,0.98);}
-    .hero-actions .btn{flex:1;justify-content:center;min-width:140px;}
     .arc-domains{grid-template-columns:repeat(2,1fr);}
     .arc-domains .arc-domain:last-child{grid-column:1/-1;}
   }
@@ -443,15 +326,10 @@
 </style>
 </head>
 <body>
-<noscript><style id="nojs-fallback">section.reveal{opacity:1!important;transform:none!important;}.scroll-progress{display:none!important;}</style></noscript>
-
-<div class="scroll-progress" id="scrollProgress"></div>
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <!-- ICON SPRITE -->
 <svg width="0" height="0" style="position:absolute">
 <defs>
-
   <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2C9.5 21 3 14.5 3 6a2 2 0 012-2z"/></symbol>
@@ -470,31 +348,21 @@
   <symbol id="i-pay" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
   <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></symbol>
   <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 21V4"/><path d="M5 4h13l-3 4 3 4H5"/></symbol>
-  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 1.84.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></symbol>
-  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
-  <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2h2"/></symbol>
-
 </defs>
 </svg>
 
 <nav class="topnav">
   <div class="wrap">
     <div class="nav-name">SHRADHA TRIPATHI</div>
-    <div class="nav-links" id="navLinks">
+    <div class="nav-links">
       <a href="#map">Profile</a>
       <a href="#glance">Glance</a>
-      <a href="#launches">Launches</a>
       <a href="#arc">Arc</a>
       <a href="#impact">Impact</a>
       <a href="#metrics">Metrics</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
-    </div>
-    <div class="nav-actions">
-      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme"><svg><use href="#i-sun"/></svg></button>
-      <button class="icon-btn" id="menuToggle" type="button" aria-label="Open menu"><svg><use href="#i-menu"/></svg></button>
     </div>
   </div>
 </nav>
@@ -511,38 +379,16 @@
       <span><svg><use href="#i-mail"/></svg>shradha.tripathi@gmail.com</span>
       <span><svg><use href="#i-pin"/></svg>Natick, MA</span>
       <span><svg><use href="#i-phone"/></svg>781-774-9838</span>
-      <a href="https://shradhatripathi-droid.github.io/Product-Leader/experience-detail_5.html" target="_blank" rel="noopener noreferrer"><svg><use href="#i-github"/></svg>GitHub</a>
-      <button class="contact-chip" id="copyEmail" type="button"><svg><use href="#i-copy"/></svg>Copy email</button>
-    </div>
-    <div class="profile-badges">
-      <span class="gold">Staff PM · Technical</span>
-      <span>Fintech &amp; Payments</span>
-      <span>AI / ML Programs</span>
-      <span>Platform Strategy</span>
-      <span>18+ Years</span>
-      <span>Boston, MA</span>
-    </div>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#impact">View impact</a>
-      <a class="btn" href="#experience">Career timeline</a>
-      <a class="btn" href="https://shradhatripathi-droid.github.io/Product-Leader/experience-detail_5.html" target="_blank" rel="noopener noreferrer"><svg><use href="#i-github"/></svg>Live portfolio</a>
-    </div>
-    <div class="now-strip">
-      <div class="now-pulse" aria-hidden="true"></div>
-      <div>
-        <div class="now-label">Currently building</div>
-        <div class="now-text">At <b>Intuit</b>, scaling QuickBooks Payments — in-person POS (Apple Tap to Pay, QR), network tokenization at <b>1.9M txns/mo</b>, and partner rails supporting <b>$100B+</b> processing volume.</div>
-      </div>
     </div>
     <div class="stat-strip">
-      <div><div class="stat-num" data-count="18" data-suffix="+">0</div><div class="stat-label">Years in product management</div></div>
-      <div><div class="stat-num" data-count="220" data-prefix="$" data-suffix="M+">0</div><div class="stat-label">Revenue &amp; savings driven across career</div></div>
-      <div><div class="stat-num" data-count="91" data-suffix="×">0</div><div class="stat-label">Tokenized txn scale-up, 20 &rarr; 1.9M/mo</div></div>
+      <div><div class="stat-num">18+</div><div class="stat-label">Years in product management</div></div>
+      <div><div class="stat-num">$220M+</div><div class="stat-label">Revenue &amp; savings driven across career</div></div>
+      <div><div class="stat-num">91&times;</div><div class="stat-label">Tokenized txn scale-up, 20 &rarr; 1.9M/mo</div></div>
     </div>
   </div>
 </header>
 
-<section id="map" class="reveal">
+<section id="map">
   <div class="wrap">
     <div class="sec-head">
       <div>
@@ -557,7 +403,7 @@
   </div>
 </section>
 
-<section id="glance" class="reveal">
+<section id="glance">
   <div class="wrap">
     <div class="sec-head">
       <div>
@@ -590,60 +436,11 @@
   </div>
 </section>
 
-<section id="launches" class="reveal">
+<section id="arc">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-tag">03 · Product ship log</div>
-        <h2 class="sec-title">Launches that moved the needle</h2>
-      </div>
-    </div>
-    <div class="launch-grid">
-      <article class="launch-card" style="--launch-color:#4C8DFF">
-        <div class="launch-meta"><span class="launch-org">Intuit</span><span class="launch-status">Shipped</span></div>
-        <h3 class="launch-title">Apple Tap to Pay &amp; in-person POS roadmap</h3>
-        <div class="launch-impact">$20M+ revenue from contactless on iPhone</div>
-        <div class="launch-year">2024–2025</div>
-      </article>
-      <article class="launch-card" style="--launch-color:#2CA6A4">
-        <div class="launch-meta"><span class="launch-org">Intuit</span><span class="launch-status">Scaled</span></div>
-        <h3 class="launch-title">Visa Token Service network tokenization</h3>
-        <div class="launch-impact">20 → 1.9M txns/mo · 97.3% auth rate</div>
-        <div class="launch-year">2023–2025</div>
-      </article>
-      <article class="launch-card" style="--launch-color:#E8B84B">
-        <div class="launch-meta"><span class="launch-org">Intuit</span><span class="launch-status">Shipped</span></div>
-        <h3 class="launch-title">Bill Pay AR rails — ACH, check &amp; virtual card</h3>
-        <div class="launch-impact">$50M+ optimization revenue</div>
-        <div class="launch-year">2022–2024</div>
-      </article>
-      <article class="launch-card" style="--launch-color:#FF9900">
-        <div class="launch-meta"><span class="launch-org">Amazon</span><span class="launch-status">Shipped</span></div>
-        <h3 class="launch-title">Alexa Rotating Content Panel</h3>
-        <div class="launch-impact">+20% customer engagement</div>
-        <div class="launch-year">2019–2021</div>
-      </article>
-      <article class="launch-card" style="--launch-color:#FF9900">
-        <div class="launch-meta"><span class="launch-org">Amazon</span><span class="launch-status">Shipped</span></div>
-        <h3 class="launch-title">AI/ML auto-transcription &amp; annotation</h3>
-        <div class="launch-impact">$90MM YoY savings · ASR/NLU lift</div>
-        <div class="launch-year">2018–2020</div>
-      </article>
-      <article class="launch-card" style="--launch-color:#2874F0">
-        <div class="launch-meta"><span class="launch-org">Flipkart</span><span class="launch-status">Shipped</span></div>
-        <h3 class="launch-title">Big Billion Day seller operations</h3>
-        <div class="launch-impact">150%+ of sale target · 30%+ units</div>
-        <div class="launch-year">2014</div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="arc" class="reveal">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-tag">04 · Career arc</div>
+        <div class="sec-tag">03 · Career arc</div>
         <h2 class="sec-title">18 years, five domain shifts</h2>
       </div>
     </div>
@@ -657,7 +454,7 @@
             <div class="arc-year">2003</div>
             <div class="arc-label">CSC</div>
             <div class="arc-card">
-              <div class="arc-card-role">Statistical &amp; Financial Analyst — eMedNY call centers</div>
+              <div class="arc-card-role">Statistical &amp; Financial Analyst · eMedNY call centers</div>
               <div class="arc-card-stat">$1M saved</div>
             </div>
           </div>
@@ -667,7 +464,7 @@
             <div class="arc-year">2008</div>
             <div class="arc-label">Hartford</div>
             <div class="arc-card">
-              <div class="arc-card-role">Financial Analyst — Enterprise Strategy Operations</div>
+              <div class="arc-card-role">Financial Analyst · Enterprise Strategy Operations</div>
               <div class="arc-card-stat">$250M budget owned</div>
             </div>
           </div>
@@ -677,7 +474,7 @@
             <div class="arc-year">2011</div>
             <div class="arc-label">Deutsche Bank</div>
             <div class="arc-card">
-              <div class="arc-card-role">Manager, Business Engineering — BPR team</div>
+              <div class="arc-card-role">Manager, Business Engineering · BPR team</div>
               <div class="arc-card-stat">175% of cost-reduction target</div>
             </div>
           </div>
@@ -687,7 +484,7 @@
             <div class="arc-year">2014</div>
             <div class="arc-label">Flipkart</div>
             <div class="arc-card">
-              <div class="arc-card-role">Sr. Manager, Product &amp; Engineering — Seller ops</div>
+              <div class="arc-card-role">Sr. Manager, Product &amp; Engineering · Seller ops</div>
               <div class="arc-card-stat">150%+ Seller NPS lift</div>
             </div>
           </div>
@@ -697,8 +494,8 @@
             <div class="arc-year">2017</div>
             <div class="arc-label">Amazon</div>
             <div class="arc-card">
-              <div class="arc-card-role">Sr. TPM — Alexa Multimodal Devices &amp; Data Services</div>
-              <div class="arc-card-stat">$90MM YoY — 150-person org</div>
+              <div class="arc-card-role">Sr. TPM · Alexa Multimodal Devices &amp; Data Services</div>
+              <div class="arc-card-stat">$90MM YoY · 150-person org</div>
             </div>
           </div>
 
@@ -707,7 +504,7 @@
             <div class="arc-year">2022</div>
             <div class="arc-label">Intuit</div>
             <div class="arc-card">
-              <div class="arc-card-role">Staff PM, Technical — QuickBooks Payments Platform</div>
+              <div class="arc-card-role">Staff PM, Technical · QuickBooks Payments Platform</div>
               <div class="arc-card-stat">$220M+ career impact · 91× scale</div>
             </div>
           </div>
@@ -742,43 +539,37 @@
         </div>
       </div>
     </div>
-    <div class="arc-caption">Hover each milestone for the headline result — Natick to Bangalore and back</div>
+    <div class="arc-caption">Hover each milestone for the headline result · Natick to Bangalore and back</div>
   </div>
 </section>
 
-<section id="impact" class="reveal">
+<section id="impact">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-tag">05 · Statement of impact</div>
+        <div class="sec-tag">04 · Statement of impact</div>
         <h2 class="sec-title">Every line, a delivered result</h2>
       </div>
     </div>
-    <div class="filter-bar" id="impactFilters">
-      <button type="button" class="active" data-filter="all">All impact</button>
-      <button type="button" data-filter="revenue">Revenue</button>
-      <button type="button" data-filter="savings">Savings</button>
-      <button type="button" data-filter="scale">Scale</button>
-    </div>
-    <div class="ledger" id="impactLedger">
-      <div class="ledger-row" data-impact="scale"><span class="ledger-dot" style="background:var(--gold)"></span><span class="ledger-desc">Potential processing volume across partner proposals — LA Clippers, LoanPro &amp; Teamwork's</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-scale">$100B+ vol.</span></div>
-      <div class="ledger-row" data-impact="savings"><span class="ledger-dot" style="background:var(--rail)"></span><span class="ledger-desc">YoY cost savings from ASR/NLU accuracy gains, auto-transcription product</span><span class="ledger-leader"></span><span class="ledger-org">AMAZON · 2017–2022</span><span class="ledger-amt amt-save">$90MM</span></div>
-      <div class="ledger-row" data-impact="scale"><span class="ledger-dot" style="background:#7CB8F2"></span><span class="ledger-desc">Annual operating budget owned for 3 enterprise strategy contact centers</span><span class="ledger-leader"></span><span class="ledger-org">THE HARTFORD · 2008–2010</span><span class="ledger-amt amt-scale">$250M</span></div>
-      <div class="ledger-row" data-impact="revenue"><span class="ledger-dot" style="background:var(--gold)"></span><span class="ledger-desc">Optimization revenue from scaling Bill Pay AR rails — ACH, check &amp; Single-Use Virtual Card</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-rev">$50M+</span></div>
-      <div class="ledger-row" data-impact="savings"><span class="ledger-dot" style="background:var(--rail)"></span><span class="ledger-desc">Annual interchange savings from automated processing across Chase, Visa, AMEX, Mastercard</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-save">~$50M</span></div>
-      <div class="ledger-row" data-impact="revenue"><span class="ledger-dot" style="background:var(--gold)"></span><span class="ledger-desc">Revenue added via Apple Tap to Pay, QR payments &amp; the 2025+ in-person POS roadmap</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-rev">$20M+</span></div>
-      <div class="ledger-row" data-impact="savings"><span class="ledger-dot" style="background:var(--rail)"></span><span class="ledger-desc">Losses eliminated via first-ever automatic ACH retry on insufficient-funds failures</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-save">$639K</span></div>
-      <div class="ledger-row" data-impact="revenue"><span class="ledger-dot" style="background:var(--gold)"></span><span class="ledger-desc">Annual revenue opportunity unlocked by scaling network tokenization 20 → 1.9M txns/mo (+91×)</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-rev">$8–10M</span></div>
-      <div class="ledger-row" data-impact="savings"><span class="ledger-dot" style="background:var(--rail)"></span><span class="ledger-desc">Cost savings delivered through workforce-planning optimization, eMedNY call centers</span><span class="ledger-leader"></span><span class="ledger-org">CSC · 2003–2005</span><span class="ledger-amt amt-save">$1M</span></div>
+    <div class="ledger">
+      <div class="ledger-row"><span class="ledger-dot" style="background:var(--gold)"></span><span class="ledger-desc">Potential processing volume across partner proposals — LA Clippers, LoanPro &amp; Teamwork's</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-scale">$100B+ vol.</span></div>
+      <div class="ledger-row"><span class="ledger-dot" style="background:var(--rail)"></span><span class="ledger-desc">YoY cost savings from ASR/NLU accuracy gains, auto-transcription product</span><span class="ledger-leader"></span><span class="ledger-org">AMAZON · 2017–2022</span><span class="ledger-amt amt-save">$90MM</span></div>
+      <div class="ledger-row"><span class="ledger-dot" style="background:#7CB8F2"></span><span class="ledger-desc">Annual operating budget owned for 3 enterprise strategy contact centers</span><span class="ledger-leader"></span><span class="ledger-org">THE HARTFORD · 2008–2010</span><span class="ledger-amt amt-scale">$250M</span></div>
+      <div class="ledger-row"><span class="ledger-dot" style="background:var(--gold)"></span><span class="ledger-desc">Optimization revenue from scaling Bill Pay AR rails — ACH, check &amp; Single-Use Virtual Card</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-rev">$50M+</span></div>
+      <div class="ledger-row"><span class="ledger-dot" style="background:var(--rail)"></span><span class="ledger-desc">Annual interchange savings from automated processing across Chase, Visa, AMEX, Mastercard</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-save">~$50M</span></div>
+      <div class="ledger-row"><span class="ledger-dot" style="background:var(--gold)"></span><span class="ledger-desc">Revenue added via Apple Tap to Pay, QR payments &amp; the 2025+ in-person POS roadmap</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-rev">$20M+</span></div>
+      <div class="ledger-row"><span class="ledger-dot" style="background:var(--rail)"></span><span class="ledger-desc">Losses eliminated via first-ever automatic ACH retry on insufficient-funds failures</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-save">$639K</span></div>
+      <div class="ledger-row"><span class="ledger-dot" style="background:var(--gold)"></span><span class="ledger-desc">Annual revenue opportunity unlocked by scaling network tokenization 20 &rarr; 1.9M txns/mo (+91&times;)</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022–Present</span><span class="ledger-amt amt-rev">$8–10M</span></div>
+      <div class="ledger-row"><span class="ledger-dot" style="background:var(--rail)"></span><span class="ledger-desc">Cost savings delivered through workforce-planning optimization, eMedNY call centers</span><span class="ledger-leader"></span><span class="ledger-org">CSC · 2003–2005</span><span class="ledger-amt amt-save">$1M</span></div>
     </div>
   </div>
 </section>
 
-<section id="metrics" class="reveal">
+<section id="metrics">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-tag">06 · Impact in numbers</div>
+        <div class="sec-tag">05 · Impact in numbers</div>
         <h2 class="sec-title">The same figures, charted</h2>
       </div>
     </div>
@@ -818,29 +609,22 @@
 </section>
 
 
-<section id="experience" class="reveal">
+<section id="experience">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-tag">07 · Career progression</div>
+        <div class="sec-tag">06 · Career progression</div>
         <h2 class="sec-title">Six companies, one throughline</h2>
       </div>
-    </div>
-    <div class="filter-bar" id="expFilters">
-      <button type="button" class="active" data-company="all">All roles</button>
-      <button type="button" data-company="intuit">Intuit</button>
-      <button type="button" data-company="amazon">Amazon</button>
-      <button type="button" data-company="earlier">Earlier career</button>
     </div>
 
     <div class="rail-wrap">
 
-      <div class="job current" data-company="intuit">
+      <div class="job current">
         <div class="badge" style="background:#4C8DFF">IN</div>
         <div class="job-head">
           <span class="org-name">Intuit</span>
           <span class="job-title">Staff Product Manager, Technical — QuickBooks Payments Platform</span>
-          <span class="job-toggle" aria-hidden="true"></span>
         </div>
         <div class="job-meta"><span class="pill">Boston, MA</span><span class="pill">2022 – Present</span></div>
         <ul class="bullets">
@@ -852,12 +636,11 @@
         </ul>
       </div>
 
-      <div class="job collapsed" data-company="amazon">
+      <div class="job">
         <div class="badge" style="background:#FF9900">AZ</div>
         <div class="job-head">
           <span class="org-name">Amazon</span>
           <span class="job-title">Sr. Technical Product Manager — Alexa Multimodal Devices</span>
-          <span class="job-toggle" aria-hidden="true"></span>
         </div>
         <div class="job-meta"><span class="pill">Boston, MA</span><span class="pill">2017 – 2022</span></div>
         <ul class="bullets">
@@ -869,12 +652,11 @@
         </ul>
       </div>
 
-      <div class="job collapsed" data-company="earlier">
+      <div class="job">
         <div class="badge" style="background:#2874F0">FK</div>
         <div class="job-head">
           <span class="org-name">Flipkart</span>
           <span class="job-title">Senior Manager, Product &amp; Engineering</span>
-          <span class="job-toggle" aria-hidden="true"></span>
         </div>
         <div class="job-meta"><span class="pill">Bangalore, India</span><span class="pill">2014 – 2017</span></div>
         <ul class="bullets">
@@ -884,12 +666,11 @@
         </ul>
       </div>
 
-      <div class="job collapsed" data-company="earlier">
+      <div class="job">
         <div class="badge" style="background:#0018A8">DB</div>
         <div class="job-head">
           <span class="org-name">Deutsche Bank</span>
           <span class="job-title">Manager, Business Engineering</span>
-          <span class="job-toggle" aria-hidden="true"></span>
         </div>
         <div class="job-meta"><span class="pill">Bangalore, India</span><span class="pill">2011 – 2014</span></div>
         <ul class="bullets">
@@ -898,12 +679,11 @@
         </ul>
       </div>
 
-      <div class="job collapsed" data-company="earlier">
+      <div class="job">
         <div class="badge" style="background:#7A2233">TH</div>
         <div class="job-head">
           <span class="org-name">The Hartford Financial Services</span>
-          <span class="job-title">Financial Analyst — Production Planning Consultant</span>
-          <span class="job-toggle" aria-hidden="true"></span>
+          <span class="job-title">Financial Analyst / Production Planning Consultant</span>
         </div>
         <div class="job-meta"><span class="pill">Hartford, CT</span><span class="pill">2008 – 2010</span></div>
         <ul class="bullets">
@@ -912,12 +692,11 @@
         </ul>
       </div>
 
-      <div class="job collapsed" data-company="earlier">
+      <div class="job">
         <div class="badge" style="background:#5B6B7C">CSC</div>
         <div class="job-head">
           <span class="org-name">CSC</span>
           <span class="job-title">Statistical and Financial Analyst</span>
-          <span class="job-toggle" aria-hidden="true"></span>
         </div>
         <div class="job-meta"><span class="pill">Albany, NY</span><span class="pill">2003 – 2005</span></div>
         <ul class="bullets">
@@ -930,15 +709,15 @@
   </div>
 </section>
 
-<section id="skills" class="reveal">
+<section id="skills">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-tag">08 · Toolkit</div>
+        <div class="sec-tag">07 · Toolkit</div>
         <h2 class="sec-title">What I build with</h2>
       </div>
     </div>
-    <div class="comp-band" id="skillChips">
+    <div class="comp-band">
       <span>Program &amp; Portfolio Management</span>
       <span>Cross-Functional Leadership</span>
       <span>Payments &amp; BillPay</span>
@@ -951,14 +730,6 @@
       <span>Data-Driven Decisioning</span>
       <span>Partner &amp; Vendor Management</span>
       <span>Security: Tokenization, HSM</span>
-    </div>
-    <div class="skill-card" style="margin-bottom:22px;" id="skillMeters">
-      <h3 style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--rail);margin:0 0 16px;font-weight:600;">Core strengths</h3>
-      <div class="skill-meter" style="--pct:95%"><div class="skill-meter-head"><span>Platform &amp; Payments Strategy</span><span>95%</span></div><div class="skill-meter-bar"><div class="skill-meter-fill"></div></div></div>
-      <div class="skill-meter" style="--pct:92%"><div class="skill-meter-head"><span>Cross-Functional Leadership</span><span>92%</span></div><div class="skill-meter-bar"><div class="skill-meter-fill"></div></div></div>
-      <div class="skill-meter" style="--pct:90%"><div class="skill-meter-head"><span>AI/ML Program Delivery</span><span>90%</span></div><div class="skill-meter-bar"><div class="skill-meter-fill"></div></div></div>
-      <div class="skill-meter" style="--pct:88%"><div class="skill-meter-head"><span>Partner &amp; Ecosystem Management</span><span>88%</span></div><div class="skill-meter-bar"><div class="skill-meter-fill"></div></div></div>
-      <div class="skill-meter" style="--pct:94%"><div class="skill-meter-head"><span>Data-Driven Product Decisions</span><span>94%</span></div><div class="skill-meter-bar"><div class="skill-meter-fill"></div></div></div>
     </div>
     <div class="skill-groups">
       <div class="skill-card">
@@ -1011,11 +782,11 @@
   </div>
 </section>
 
-<section id="education" class="reveal">
+<section id="education">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-tag">09 · Education &amp; certifications</div>
+        <div class="sec-tag">08 · Education &amp; certifications</div>
         <h2 class="sec-title">Foundations</h2>
       </div>
     </div>
@@ -1041,184 +812,27 @@
 
 <footer>
   <div class="rule"></div>
-  Natick, MA &nbsp;·&nbsp; shradha.tripathi@gmail.com &nbsp;·&nbsp; 781-774-9838 &nbsp;·&nbsp;
-  <a href="https://shradhatripathi-droid.github.io/Product-Leader/experience-detail_5.html" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted-2);">GitHub</a>
+  Natick, MA &nbsp;·&nbsp; shradha.tripathi@gmail.com &nbsp;·&nbsp; 781-774-9838
 </footer>
 
 <script>
 (function(){
-  document.documentElement.classList.add('js');
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var toast = document.getElementById('toast');
-  var email = 'shradha.tripathi@gmail.com';
-
-  function showToast(msg){
-    if(!toast) return;
-    toast.textContent = msg;
-    toast.classList.add('show');
-    clearTimeout(showToast._t);
-    showToast._t = setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+  var widget=document.getElementById('arcWidget');
+  if(!widget)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    widget.classList.add('is-visible');
+    return;
   }
-
-  var progress = document.getElementById('scrollProgress');
-  window.addEventListener('scroll', function(){
-    if(!progress) return;
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    progress.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
-  }, {passive:true});
-
-  var navLinks = document.querySelectorAll('.nav-links a');
-  var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
-  function setActiveNav(){
-    var y = window.scrollY + 120;
-    var current = sections[0];
-    sections.forEach(function(s){ if(s.offsetTop <= y) current = s; });
-    navLinks.forEach(function(a){
-      a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
-    });
-  }
-  window.addEventListener('scroll', setActiveNav, {passive:true});
-  setActiveNav();
-
-  var menuBtn = document.getElementById('menuToggle');
-  var nav = document.getElementById('navLinks');
-  if(menuBtn && nav){
-    menuBtn.addEventListener('click', function(){ nav.classList.toggle('open'); });
-    nav.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){ nav.classList.remove('open'); });
-    });
-  }
-
-  var themeBtn = document.getElementById('themeToggle');
-  var savedTheme = localStorage.getItem('portfolio-theme');
-  if(savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
-  if(themeBtn){
-    themeBtn.addEventListener('click', function(){
-      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      if(next === 'dark') document.documentElement.removeAttribute('data-theme');
-      else document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('portfolio-theme', next === 'dark' ? '' : 'light');
-    });
-  }
-
-  var copyBtn = document.getElementById('copyEmail');
-  if(copyBtn){
-    copyBtn.addEventListener('click', function(){
-      if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(email).then(function(){
-          copyBtn.classList.add('copied');
-          showToast('Email copied to clipboard');
-          setTimeout(function(){ copyBtn.classList.remove('copied'); }, 2000);
-        });
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        widget.classList.add('is-visible');
+        obs.unobserve(widget);
       }
     });
-  }
-
-  function animateCount(el){
-    var target = parseFloat(el.getAttribute('data-count') || '0');
-    var prefix = el.getAttribute('data-prefix') || '';
-    var suffix = el.getAttribute('data-suffix') || '';
-    if(reduced){ el.textContent = prefix + target + suffix; return; }
-    var dur = 1400, t0 = null;
-    function step(ts){
-      if(!t0) t0 = ts;
-      var p = Math.min((ts - t0) / dur, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = prefix + Math.round(target * eased) + suffix;
-      if(p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  var statsObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ animateCount(e.target); statsObs.unobserve(e.target); }
-    });
-  }, {threshold:0.5});
-  document.querySelectorAll('.stat-num[data-count]').forEach(function(el){ statsObs.observe(el); });
-
-  document.querySelectorAll('section.reveal').forEach(function(s){ s.classList.add('is-visible'); });
-  if(!reduced){
-    document.querySelectorAll('section.reveal').forEach(function(s){ s.classList.remove('is-visible'); });
-    var revealObs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('is-visible'); revealObs.unobserve(e.target); }
-      });
-    }, {threshold:0.12});
-    document.querySelectorAll('section.reveal').forEach(function(s){ revealObs.observe(s); });
-  }
-
-  var arcWidget = document.getElementById('arcWidget');
-  if(arcWidget){
-    if(reduced) arcWidget.classList.add('is-visible');
-    else {
-      var arcObs = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){ arcWidget.classList.add('is-visible'); arcObs.unobserve(arcWidget); }
-        });
-      }, {threshold:0.35});
-      arcObs.observe(arcWidget);
-    }
-  }
-
-  var impactFilters = document.getElementById('impactFilters');
-  if(impactFilters){
-    impactFilters.addEventListener('click', function(e){
-      var btn = e.target.closest('button[data-filter]');
-      if(!btn) return;
-      var f = btn.getAttribute('data-filter');
-      impactFilters.querySelectorAll('button').forEach(function(b){ b.classList.toggle('active', f === btn); });
-      document.querySelectorAll('#impactLedger .ledger-row').forEach(function(row){
-        row.classList.toggle('hidden', f !== 'all' && row.getAttribute('data-impact') !== f);
-      });
-    });
-  }
-
-  document.querySelectorAll('.job-head').forEach(function(head){
-    head.addEventListener('click', function(){ head.closest('.job').classList.toggle('collapsed'); });
-  });
-  var expFilters = document.getElementById('expFilters');
-  if(expFilters){
-    expFilters.addEventListener('click', function(e){
-      var btn = e.target.closest('button[data-company]');
-      if(!btn) return;
-      var f = btn.getAttribute('data-company');
-      expFilters.querySelectorAll('button').forEach(function(b){ b.classList.toggle('active', f === btn); });
-      document.querySelectorAll('#experience .job').forEach(function(job){
-        job.classList.toggle('filtered-out', f !== 'all' && job.getAttribute('data-company') !== f);
-      });
-    });
-  }
-
-  var skillChips = document.getElementById('skillChips');
-  if(skillChips){
-    skillChips.addEventListener('click', function(e){
-      var chip = e.target.closest('span');
-      if(!chip) return;
-      var on = chip.classList.toggle('active');
-      skillChips.querySelectorAll('span').forEach(function(s){
-        if(s !== chip) s.classList.toggle('dim', on);
-      });
-      if(!on) skillChips.querySelectorAll('span').forEach(function(s){ s.classList.remove('dim'); });
-    });
-  }
-
-  var metersWrap = document.getElementById('skillMeters');
-  if(metersWrap){
-    if(reduced) metersWrap.querySelectorAll('.skill-meter').forEach(function(m){ m.classList.add('is-visible'); });
-    else {
-      var meterObs = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){
-            metersWrap.querySelectorAll('.skill-meter').forEach(function(m){ m.classList.add('is-visible'); });
-            meterObs.unobserve(metersWrap);
-          }
-        });
-      }, {threshold:0.3});
-      meterObs.observe(metersWrap);
-    }
-  }
+  },{threshold:0.35});
+  obs.observe(widget);
 })();
-
 </script>
 
 </body>
