@@ -1,4 +1,4 @@
-# Product Leader — Shradha Tripathi
+# Product Leader Â— Shradha Tripathi
 
 Interactive product management portfolio: career arc, impact ledger, metrics, and experience across fintech, AI/ML, and enterprise platforms.
 
@@ -8,7 +8,7 @@ Interactive product management portfolio: career arc, impact ledger, metrics, an
 
 - 18+ years in product management (Intuit, Amazon, Flipkart, Deutsche Bank, The Hartford, CSC)
 - $220M+ revenue and savings driven across career
-- Staff PM, Technical — QuickBooks Payments Platform @ Intuit
+- Staff PM, Technical Â— QuickBooks Payments Platform @ Intuit
 
 ## Contact
 

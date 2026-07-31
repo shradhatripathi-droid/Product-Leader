@@ -120,15 +120,36 @@
   .now-text{font-size:14px;color:#CBD8EA;line-height:1.55;}
   .now-text b{color:var(--paper);}
 
-  .stat-strip{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  .stat-widgets{
+    display:flex;flex-direction:column;gap:12px;margin-top:8px;
   }
-  .stat-strip div{padding:20px 4px;border-right:1px solid var(--line);transition:background .2s;}
-  .stat-strip div:hover{background:rgba(44,166,164,0.06);}
-  .stat-strip div:last-child{border-right:none;}
-  .stat-num{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--gold);}
-  .stat-label{font-size:12px;color:var(--muted);margin-top:4px;}
+  .stat-widget{
+    background:var(--panel-2);border:1px solid var(--line);border-radius:12px;
+    padding:18px 22px 18px 26px;position:relative;overflow:hidden;
+    transition:transform .2s,border-color .2s,box-shadow .2s;
+  }
+  .stat-widget::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:var(--widget-accent,var(--rail));
+  }
+  .stat-widget:hover{
+    transform:translateY(-2px);border-color:var(--rail-soft);
+    box-shadow:0 10px 32px rgba(0,0,0,0.22);
+  }
+  .stat-widget-body{
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+  }
+  .stat-widget-copy{flex:1;min-width:0;}
+  .stat-widget-label{
+    font-size:15px;font-weight:600;color:var(--paper);line-height:1.35;
+  }
+  .stat-widget-meta{
+    font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.45;max-width:36em;
+  }
+  .stat-num{
+    font-family:var(--font-display);font-size:34px;font-weight:700;color:var(--gold);
+    flex:none;text-align:right;line-height:1;letter-spacing:-0.02em;
+  }
 
   section.reveal{opacity:1;transform:none;}
   html.js section.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
@@ -420,7 +441,9 @@
   @media (max-width:720px){
     .wrap{padding:0 20px;}
     h1.name{font-size:36px;}
-    .stat-strip{grid-template-columns:repeat(2,1fr);}
+    .stat-widget-body{align-items:flex-start;gap:16px;}
+    .stat-num{font-size:28px;}
+    .stat-widget-label{font-size:14px;}
     .skill-groups,.edu-grid{grid-template-columns:1fr;}
     .glance-grid{grid-template-columns:1fr;}
     .rail-wrap{padding-left:44px;}
@@ -534,10 +557,34 @@
         <div class="now-text">At <b>Intuit</b>, scaling QuickBooks Payments · in-person POS (Apple Tap to Pay, QR), network tokenization at <b>1.9M txns/mo</b>, and partner rails supporting <b>$100B+</b> processing volume.</div>
       </div>
     </div>
-    <div class="stat-strip">
-      <div><div class="stat-num" data-count="18" data-suffix="+">0</div><div class="stat-label">Years in product management</div></div>
-      <div><div class="stat-num" data-count="220" data-prefix="$" data-suffix="M+">0</div><div class="stat-label">Revenue &amp; savings driven across career</div></div>
-      <div><div class="stat-num" data-count="91" data-suffix="×">0</div><div class="stat-label">Tokenized txn scale-up, 20 &rarr; 1.9M/mo</div></div>
+    <div class="stat-widgets" aria-label="Career impact highlights">
+      <article class="stat-widget" style="--widget-accent:var(--rail)">
+        <div class="stat-widget-body">
+          <div class="stat-widget-copy">
+            <div class="stat-widget-label">Years in product management</div>
+            <div class="stat-widget-meta">From analyst to Staff PM owning payments platforms at scale</div>
+          </div>
+          <div class="stat-num" data-count="18" data-suffix="+">0</div>
+        </div>
+      </article>
+      <article class="stat-widget" style="--widget-accent:var(--gold)">
+        <div class="stat-widget-body">
+          <div class="stat-widget-copy">
+            <div class="stat-widget-label">Revenue &amp; savings driven across career</div>
+            <div class="stat-widget-meta">Bill Pay, tokenization, AI/ML programs, and cost optimization</div>
+          </div>
+          <div class="stat-num" data-count="220" data-prefix="$" data-suffix="M+">0</div>
+        </div>
+      </article>
+      <article class="stat-widget" style="--widget-accent:var(--good)">
+        <div class="stat-widget-body">
+          <div class="stat-widget-copy">
+            <div class="stat-widget-label">Tokenized transaction scale-up</div>
+            <div class="stat-widget-meta">QuickBooks Payments network tokenization · 20 → 1.9M txns/mo</div>
+          </div>
+          <div class="stat-num" data-count="91" data-suffix="×">0</div>
+        </div>
+      </article>
     </div>
   </div>
 </header>
@@ -609,7 +656,7 @@
         <div class="launch-meta"><span class="launch-org">Intuit</span><span class="launch-status">Scaled</span></div>
         <h3 class="launch-title">Visa Token Service network tokenization</h3>
         <div class="launch-impact">20 → 1.9M txns/mo · 97.3% auth rate</div>
-        <div class="launch-year">2023×2025</div>
+        <div class="launch-year">2023 – 2025</div>
       </article>
       <article class="launch-card" style="--launch-color:#E8B84B">
         <div class="launch-meta"><span class="launch-org">Intuit</span><span class="launch-status">Shipped</span></div>
@@ -716,27 +763,27 @@
 
       <div class="arc-domains">
         <div class="arc-domain" style="--domain-color:#8896A6">
-          <div class="arc-domain-era">2003×07</div>
+          <div class="arc-domain-era">2003 – 07</div>
           <div class="arc-domain-name">Ops &amp; Analytics</div>
           <span class="arc-domain-tag">Data-driven ops</span>
         </div>
         <div class="arc-domain" style="--domain-color:#B85C6E">
-          <div class="arc-domain-era">2008·10</div>
+          <div class="arc-domain-era">2008 – 10</div>
           <div class="arc-domain-name">Finance</div>
           <span class="arc-domain-tag">Enterprise planning</span>
         </div>
         <div class="arc-domain" style="--domain-color:#2874F0">
-          <div class="arc-domain-era">2011·17</div>
+          <div class="arc-domain-era">2011 – 17</div>
           <div class="arc-domain-name">Banking &amp; E-commerce</div>
           <span class="arc-domain-tag">Process &amp; marketplace</span>
         </div>
         <div class="arc-domain" style="--domain-color:#FF9900">
-          <div class="arc-domain-era">2017·22</div>
+          <div class="arc-domain-era">2017 – 22</div>
           <div class="arc-domain-name">AI / ML &amp; Voice</div>
           <span class="arc-domain-tag">Alexa at scale</span>
         </div>
         <div class="arc-domain" style="--domain-color:#4C8DFF">
-          <div class="arc-domain-era">2022·now</div>
+          <div class="arc-domain-era">2022 – now</div>
           <div class="arc-domain-name">Fintech &amp; Payments</div>
           <span class="arc-domain-tag">Platform PM</span>
         </div>
@@ -768,7 +815,7 @@
       <div class="ledger-row" data-impact="revenue"><span class="ledger-dot" style="background:var(--gold)"></span><span class="ledger-desc">Revenue added via Apple Tap to Pay, QR payments &amp; the 2025+ in-person POS roadmap</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022 – Present</span><span class="ledger-amt amt-rev">$20M+</span></div>
       <div class="ledger-row" data-impact="savings"><span class="ledger-dot" style="background:var(--rail)"></span><span class="ledger-desc">Losses eliminated via first-ever automatic ACH retry on insufficient-funds failures</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022 – Present</span><span class="ledger-amt amt-save">$639K</span></div>
       <div class="ledger-row" data-impact="revenue"><span class="ledger-dot" style="background:var(--gold)"></span><span class="ledger-desc">Annual revenue opportunity unlocked by scaling network tokenization 20 → 1.9M txns/mo (+91×)</span><span class="ledger-leader"></span><span class="ledger-org">INTUIT · 2022 – Present</span><span class="ledger-amt amt-rev">$8–10M</span></div>
-      <div class="ledger-row" data-impact="savings"><span class="ledger-dot" style="background:var(--rail)"></span><span class="ledger-desc">Cost savings delivered through workforce-planning optimization, eMedNY call centers</span><span class="ledger-leader"></span><span class="ledger-org">CSC · 2003×2005</span><span class="ledger-amt amt-save">$1M</span></div>
+      <div class="ledger-row" data-impact="savings"><span class="ledger-dot" style="background:var(--rail)"></span><span class="ledger-desc">Cost savings delivered through workforce-planning optimization, eMedNY call centers</span><span class="ledger-leader"></span><span class="ledger-org">CSC · 2003 – 2005</span><span class="ledger-amt amt-save">$1M</span></div>
     </div>
   </div>
 </section>
@@ -844,7 +891,7 @@
         <div class="job-meta"><span class="pill">Boston, MA</span><span class="pill">2022 – Present</span></div>
         <ul class="bullets">
           <li><svg><use href="#i-api"/></svg><span>Built and scaled <b>Bill Pay AR rails</b> for QuickBooks merchants · ACH, check, and Single-Use Virtual Card payments · driving <b>$50M+ in optimization revenue</b>, now expanding into cross-border and credit-card acceptance.</span></li>
-          <li><svg><use href="#i-launch"/></svg><span>Delivered <b>Apple Tap to Pay</b>, QR payments, and the POS strategy for iPhone-based contactless acceptance, shaping Intuit's 2025+ in-person payments roadmap and adding <b>$20M+</b> in revenue. <a href="https://www.businesswire.com/news/home/20250311864533/en/Intuit-QuickBooks-Enables-Tap-to-Pay-on-iPhone-for-Small-and-Mid-Market-Businesses-to-Accept-Contactless-Payments" target="_blank" rel="noopener">Read the announcement ?</a></span></li>
+          <li><svg><use href="#i-launch"/></svg><span>Delivered <b>Apple Tap to Pay</b>, QR payments, and the POS strategy for iPhone-based contactless acceptance, shaping Intuit's 2025+ in-person payments roadmap and adding <b>$20M+</b> in revenue. <a href="https://www.businesswire.com/news/home/20250311864533/en/Intuit-QuickBooks-Enables-Tap-to-Pay-on-iPhone-for-Small-and-Mid-Market-Businesses-to-Accept-Contactless-Payments" target="_blank" rel="noopener">Read the announcement →</a></span></li>
           <li><svg><use href="#i-target"/></svg><span>Rolled out <b>Visa Token Service</b> network tokenization across QuickBooks Payments · scaling from 20 to <b>1.9M tokenized transactions/month (+91×)</b> and lifting authorization rates to <b>97.3% (+11.75pp)</b>, unlocking $8–10M in annual revenue via wallet expansion, BNPL, and optimized risk thresholds.</span></li>
           <li><svg><use href="#i-save"/></svg><span>Drove <b>~$50M+ in annual savings</b> with automated interchange-optimization across Chase, Visa, AMEX, and Mastercard, and cut ACH losses by <b>$639K</b> through auto-retry.</span></li>
           <li><svg><use href="#i-hand"/></svg><span>Shipped a <b>Unified API</b> across Intuit's payments surface, set pricing/platform strategy for third-party developers, and structured partner proposals (LA Clippers, LoanPro, Teamwork's) supporting <b>$100B+</b> in potential processing volume.</span></li>
